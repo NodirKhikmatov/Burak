@@ -1,17 +1,28 @@
-console.log("executed");
 
-import moment from 'moment'
+import dotenv from "dotenv";
+dotenv.config()
 
-const currentTime = moment().format("YYYY MM DD");
-console.log(currentTime);
+console.log("PORT:", process.env.PORT);
 
-const person: string = "Martin";
-const count: number = 100;
+console.log("MONGO_URL:", process.env.MONGO_URL);
 
 
 
-//architertural pattern: MVC,DI,MVP
 
-//MVC = model view controller
 
-//Design pattern MIDDLEWARE, Decotar
+
+
+
+
+// console.log("executed");
+
+// import moment from 'moment'
+
+// const currentTime = moment().format("YYYY MM DD");
+// console.log(currentTime);
+
+// const person: string = "Martin";
+// const count: number = 100;
+
+
+
