@@ -11,8 +11,6 @@ function getPositive(arr){
 console.log(getPositive([2,-5,5]));
 
 
-
-
 /*task G
 Yagona parametrga ega function tuzing.
 Va bu function parametr orqalik integer ma'lumot turlariga ega bo'lgan bir arrayni qabul qilsin.
