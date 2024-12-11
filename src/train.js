@@ -1,15 +1,27 @@
+/**H2-TASK: 
+
+Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+MASALAN: getDigits("m14i1t") return qiladi "141" */
+
+const getDigits = (arr) => {
+  const number = arr.match(/\d+/g);
+  return number;
+};
+
+console.log(getDigits("MIT22"));
 
 /*H-TASK: 
 
 shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, faqat positive qiymatlarni olib string holatda return qilsin
-MASALAN: getPositive([1, -4, 2]) return qiladi "12"*/
+MASALAN: getPositive([1, -4, 2]) return qiladi "12"
+
 
 function getPositive(arr){
     return arr.filter(num => num > 0).join("");
 }
 
 console.log(getPositive([2,-5,5]));
-
+*/
 
 /*task G
 Yagona parametrga ega function tuzing.
@@ -20,7 +32,6 @@ MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini
 Yuqoridagi misolda, birinchi indeksda 21 joylashgan.
 Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga uning indeksi 1 qaytadi.*/
 
-
 // function findMax(numbers){
 // let highestNumber = Math.max(...numbers);
 
@@ -28,4 +39,3 @@ Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga un
 // }
 // const results = findMax([4,25,89,5])
 // console.log(results);
-
