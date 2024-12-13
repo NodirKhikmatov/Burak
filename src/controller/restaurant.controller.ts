@@ -2,14 +2,13 @@ import { Request, Response } from "express";
 import { T } from "../libs//types//common";
 import MemberService from "../models/member.service";
 
-
 const restaurantController: T = {};
 
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
 
-    res.send("Home Page");
+    res.send("Home Page"); //response = send | json | redirect | end | render
   } catch (err) {
     console.log("err: gohome:", err);
   }
@@ -34,6 +33,24 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     res.send("Singup Page");
   } catch (err) {
     console.log("err: getSignup:", err);
+  }
+};
+
+restaurantController.processLogin = (req: Request, res: Response) => {
+  try {
+    console.log("processLogin");
+    res.send("Done");
+  } catch (err) {
+    console.log("err: processLogin:", err);
+  }
+};
+
+restaurantController.processSignup = (req: Request, res: Response) => {
+  try {
+    console.log("processSignup");
+    res.send("Done");
+  } catch (err) {
+    console.log("err: processSignup:", err);
   }
 };
 
