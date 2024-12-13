@@ -1,7 +1,22 @@
+/*PROJECT STANDARDS:
+
+--Logging standards,
+--Naming standards,
+--function,method,variable => Camel,
+--class => Pascal, MemberType
+--folder => kebab,
+--css =>snake
+
+-ERROR HANDLING
+
+
+
+*/
+
 /**H2-TASK: 
 
 Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
-MASALAN: getDigits("m14i1t") return qiladi "141" */
+MASALAN: getDigits("m14i1t") return qiladi "141"
 
 const getDigits = (arr) => {
   const number = arr.match(/\d+/g);
@@ -9,6 +24,7 @@ const getDigits = (arr) => {
 };
 
 console.log(getDigits("MIT22"));
+ */
 
 /*H-TASK: 
 
