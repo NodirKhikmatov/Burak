@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { MemberType } from "../libs/enum/member.enum";
+import { MemberStatus, MemberType } from "../libs//enum/member.enum";
 
 //new classlardan object yasash
 const memberSchema = new Schema(
@@ -48,7 +48,7 @@ const memberSchema = new Schema(
       default: 0,
     },
   },
-  { timeStamps: true } //createdAt, UpdatedAt
+  { timestamps: true } //createdAt, UpdatedAt
 );
 
 export default mongoose.model("Member", memberSchema);
