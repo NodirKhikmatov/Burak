@@ -23,6 +23,9 @@ class MemberService {
 
     try {
       const result = await this.memberModel.create(input);
+
+      // const tempResult = new this.memberModel(input);
+      // const result = await tempResult.save();
       result.memberPassword = "";
       return result;
     } catch (err) {
