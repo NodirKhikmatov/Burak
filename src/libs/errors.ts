@@ -14,6 +14,10 @@ export enum Message {
   NO_DATA_FOUND = "no data is found",
   CREATE_FAILED = "create is failed",
   UPDATED_FAILED = "update is failed",
+
+  NO_MEMBER_NICK = "No member with that member nick!",
+  NO_NUMBER_NICK = "you are inserting already used nick or phone!",
+  WRONG_PASSWORD = "wrong password entered, please try again!",
 }
 
 //inheritance

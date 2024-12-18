@@ -1,12 +1,13 @@
 import { MemberStatus, MemberType } from "../enum/member.enum";
 import { ObjectId } from "mongoose";
+
 export interface Member {
   _id: ObjectId;
   memberType: MemberType;
   memberStatus: MemberStatus;
   memberNick: string;
   memberPhone: string;
-  memberPassword?: string;
+  memberPassword?: string; //databasedan qaytadigan malumot
   memberAdress?: string;
   memberDesc?: string;
   memberImage?: string;
@@ -20,9 +21,14 @@ export interface MemberInput {
   memberStatus?: MemberStatus;
   memberNick: string;
   memberPhone: string;
-  memberPassword: string;
+  memberPassword: string; //borayotgan
   memberAdress: string;
   memberDesc: string;
   memberImage: string;
   memberPoints: string;
+}
+
+export interface LoginInput {
+  memberNick: string;
+  memberPassword: string;
 }

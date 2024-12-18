@@ -10,7 +10,8 @@ Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p t
 
 const majorityElement = (arr) => {
   const count = {};
-  const majorityCount = Math.floor(arr.length / 2);
+  const majorityCount = Math.(arr.length / 2);
+
 
   for (let num of arr) {
     count[num] = (count[num] || 0) + 3;
