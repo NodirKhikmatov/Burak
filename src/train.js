@@ -1,3 +1,31 @@
+/*TASK J:
+
+Shunday function tuzing, u string qabul qilsin.
+Va string ichidagi eng uzun so'zni qaytarsin.
+
+MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
+
+Yuqoridagi text tarkibida 'Uzbekistan'
+eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
+
+*/
+
+function findLongestWord(str) {
+  let words = str.split(/\s+/);
+
+  let longestWord = "";
+  for (let word of words) {
+    let cleanedWord = word.replace(/[^a-zA-Z']/g, "");
+    if (cleanedWord.length > longestWord.length) {
+      longestWord = cleanedWord;
+    }
+  }
+
+  return longestWord;
+}
+
+console.log(findLongestWord("I came from Uzbekistan!")); // "Uzbekistan"
+
 /*TASK I:
 
 Shunday function tuzing, u parametrdagi array ichida eng ko'p
@@ -6,7 +34,7 @@ takrorlangan raqamni topib qaytarsin.
 MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
 
 Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
-*/
+
 
 const majorityElement = (arr) => {
   const count = {};
@@ -23,7 +51,7 @@ const majorityElement = (arr) => {
 };
 
 console.log(majorityElement([1, 2, 3, 4, 5, 4, 4, 3]));
-
+*/
 /*PROJECT STANDARDS:
 
 --Logging standards,
