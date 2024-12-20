@@ -5,11 +5,11 @@ import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput } from "../libs/types/member";
 
 const restaurantController: T = {};
-
+const memberService = new MemberService();
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
-
+    //todo session authentication
     res.send("Home Page"); //response = send | json | redirect | end | render
   } catch (err) {
     console.log("err: gohome:", err);
@@ -22,7 +22,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 
     //login,
     //service model
-
+    //todo session authentication
     res.send("Login Page");
   } catch (err) {
     console.log("err: getLogin:", err);
@@ -32,6 +32,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
+    //todo session authentication
     res.send("Singup Page");
   } catch (err) {
     console.log("err: getSignup:", err);
@@ -45,7 +46,7 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     console.log("body:", req.body);
 
     const input: LoginInput = req.body;
-    const memberService = new MemberService();
+
     const result = await memberService.processLogin(input);
 
     res.send(result);
@@ -62,7 +63,6 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
 
     newMember.memberType = MemberType.RESTAURANT;
 
-    const memberService = new MemberService();
     const result = await memberService.processSignup(newMember);
     res.send(result);
   } catch (err) {

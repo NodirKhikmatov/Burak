@@ -1,3 +1,8 @@
+/*
+traditional FD => BSSR (ADMINKA) => EJS
+MODERN FD => SPA (USER) => REACT 
+*/
+
 /*TASK J:
 
 Shunday function tuzing, u string qabul qilsin.
@@ -8,7 +13,7 @@ MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
 Yuqoridagi text tarkibida 'Uzbekistan'
 eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
 
-*/
+
 
 function findLongestWord(str) {
   let words = str.split(/\s+/);
@@ -25,6 +30,7 @@ function findLongestWord(str) {
 }
 
 console.log(findLongestWord("I came from Uzbekistan!")); // "Uzbekistan"
+*/
 
 /*TASK I:
 

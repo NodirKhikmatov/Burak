@@ -18,6 +18,7 @@ export enum Message {
   NO_MEMBER_NICK = "No member with that member nick!",
   NO_NUMBER_NICK = "you are inserting already used nick or phone!",
   WRONG_PASSWORD = "wrong password entered, please try again!",
+  USED_NICK_PHONE = "Nick or phone is already used!",
 }
 
 //inheritance
@@ -26,6 +27,10 @@ class Errors extends Error {
   public code: HttpCode;
   public message: Message;
 
+  static standard = {
+    code: HttpCode.INTERNAL_SERVER_ERROR,
+    message: Message.SOMETHING_WENT_WRONG,
+  };
   constructor(statusCode: HttpCode, statusMessage: Message) {
     super();
     this.code = statusCode;

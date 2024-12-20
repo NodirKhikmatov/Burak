@@ -1,31 +1,45 @@
+import { LoginInput, MemberInput, Member } from "./../libs/types/member";
 import { Request, Response } from "express";
 import { T } from "../libs//types//common";
+import MemberService from "../models/Member.service";
+import Errors from "../libs/errors";
+
+const memberService = new MemberService();
 const memberController: T = {};
 
 //REACT
 
-// memberController.goHome = (req: Request, res: Response) => {
-//   try {
-//     res.send("Home Page");
-//   } catch (err) {
-//     console.log("err: gohome:", err);
-//   }
-// };
+memberController.signup = async (req: Request, res: Response) => {
+  try {
+    console.log("signup");
 
-// memberController.getLogin = (req: Request, res: Response) => {
-//   try {
-//     res.send("Login Page");
-//   } catch (err) {
-//     console.log("err: getLogin:", err);
-//   }
-// };
+    const input: MemberInput = req.body,
+      result: Member = await memberService.signup(input);
+      //tood token authentication
+    res.json({ member: result });
+  } catch (err) {
+    console.log("err: signup:", err);
+    if (err instanceof Errors) {
+      res.status(err.code).json(err);
+    } else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
 
-// memberController.getSignup = (req: Request, res: Response) => {
-//   try {
-//     res.send("Singup Page");
-//   } catch (err) {
-//     console.log("err: getSignup:", err);
-//   }
-// };
+memberController.login = async (req: Request, res: Response) => {
+  try {
+    console.log("login");
+    console.log("body:", req.body);
+
+    const input: LoginInput = req.body,
+      result = await memberService.login(input);
+//token 
+    res.json({ member: result });
+  } catch (err) {
+    console.log("err: Login:", err);
+    if (err instanceof Errors) {
+      res.status(err.code).json(err);
+    } else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
 
 export default memberController;
