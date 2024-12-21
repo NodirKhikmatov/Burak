@@ -10,7 +10,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     //todo session authentication
-    res.send("Home Page"); //response = send | json | redirect | end | render
+    res.render("home"); //response = send | json | redirect | end | render
   } catch (err) {
     console.log("err: gohome:", err);
   }
@@ -23,7 +23,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     //login,
     //service model
     //todo session authentication
-    res.send("Login Page");
+    res.render("login");
   } catch (err) {
     console.log("err: getLogin:", err);
   }
@@ -33,7 +33,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
     //todo session authentication
-    res.send("Singup Page");
+    res.render("signup");
   } catch (err) {
     console.log("err: getSignup:", err);
     res.send(err);
