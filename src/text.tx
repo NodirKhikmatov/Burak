@@ -1,0 +1,9 @@
+cookies 
+
+request join
+self destroy
+
+
+////////////////////////////////
+
+res.send | render | redirect | json
