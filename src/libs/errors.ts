@@ -19,6 +19,7 @@ export enum Message {
   NO_NUMBER_NICK = "you are inserting already used nick or phone!",
   WRONG_PASSWORD = "wrong password entered, please try again!",
   USED_NICK_PHONE = "Nick or phone is already used!",
+  NOT_AUTHENTICATED = "Please login first!",
 }
 
 //inheritance
