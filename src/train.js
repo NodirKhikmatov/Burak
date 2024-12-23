@@ -1,4 +1,25 @@
 /*
+TASK K: 
+
+Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+MASALAN: countVowels("string") return 1;
+*/
+
+const countVowels = (str) => {
+  let vowels = ["i", "u", "a", "e", "o"];
+  // let str = "string";
+  let count = 0;
+
+  for (let i of str) {
+    if (vowels.includes(i)) {
+      count++;
+    }
+  }
+  return count;
+};
+console.log(countVowels("mitsila "));
+
+/*
 traditional FD => BSSR (ADMINKA) => EJS
 MODERN FD => SPA (USER) => REACT 
 */

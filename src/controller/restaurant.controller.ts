@@ -56,7 +56,7 @@ restaurantController.processLogin = async (
 
     //todo session authentication
 
-    req.session.member = result;
+    req.session.member = result; //cookieni ichiga stickni joylab keladi  session collectionga borib datani save
     req.session.save(function () {
       res.send(result);
     });
