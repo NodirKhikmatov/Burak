@@ -84,7 +84,7 @@ restaurantController.processSignup = async (
     const result = await memberService.processSignup(newMember);
 
     //todo session authentication
-
+    //db ypzish & 2frontendga yozish
     req.session.member = result;
     req.session.save(function () {
       res.send(result);

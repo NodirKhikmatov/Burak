@@ -4,7 +4,7 @@ import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
-
+//for building sessions
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
@@ -22,18 +22,23 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
+
 /** 2-sessions */
+
+//req DB
+
 app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
     cookie: {
-      maxAge: 1000 * 3600 * 3, //3hours
+      maxAge: 1000 * 3600 * 6, //3hours
     },
     store: store,
     resave: true,
     saveUninitialized: true, //save uninitialized sessions to the store
   })
 );
+//+req.session
 
 /** 3-views */
 app.set("views", path.join(__dirname, "views"));
