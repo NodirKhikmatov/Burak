@@ -1,5 +1,6 @@
+import session from "express-session";
 import { MemberType } from "./../libs/enum/member.enum";
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { T } from "../libs//types//common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, MemberInput, LoginInput } from "../libs/types/member";
@@ -64,7 +65,7 @@ restaurantController.processLogin = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert(" ${message}"); window.location.replace('admin/login') </script>`
+      `<script> alert(" ${message}"); window.location.replace('/admin/login') </script>`
     );
     console.log("err: processLogin:", err);
   }
@@ -125,4 +126,19 @@ restaurantController.checkAuthSession = async (
   }
 };
 
+restaurantController.verifyRestaurant = (
+  req: AdminRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+    req.member = req.session.member;
+    next();
+  } else {
+    const message = Message.NOT_AUTHENTICATED;
+    res.send(
+      `<script> alert(" ${message}"); window.location.replace('/admin/login') </script>`
+    );
+  }
+};
 export default restaurantController;

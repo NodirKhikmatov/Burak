@@ -3,6 +3,7 @@ import path from "path";
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
+import { T } from "./libs/types/common";
 import { MORGAN_FORMAT } from "./libs/config";
 //for building sessions
 import session from "express-session";
@@ -39,6 +40,11 @@ app.use(
   })
 );
 //+req.session
+app.use(function (req, res, next) {
+  const sessionInstance = req.session as T;
+  res.locals.member = sessionInstance.member;
+  next();
+});
 
 /** 3-views */
 app.set("views", path.join(__dirname, "views"));
