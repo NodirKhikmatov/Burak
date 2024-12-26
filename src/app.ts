@@ -43,7 +43,7 @@ app.use(
 app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
   res.locals.member = sessionInstance.member;
-  next();
+  next()
 });
 
 /** 3-views */
