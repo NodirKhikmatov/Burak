@@ -5,6 +5,7 @@ import { T } from "../libs//types//common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, MemberInput, LoginInput } from "../libs/types/member";
 import Errors, { Message } from "./../libs/errors";
+// import path from "path";
 
 const restaurantController: T = {};
 const memberService = new MemberService();
@@ -59,7 +60,7 @@ restaurantController.processLogin = async (
 
     req.session.member = result; //cookieni ichiga stickni joylab keladi  session collectionga borib datani save
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     const message =
@@ -77,8 +78,9 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup");
-
+    const file = req.file;
     const newMember: MemberInput = req.body;
+    newMember.memberImage = file?.path;
 
     newMember.memberType = MemberType.RESTAURANT;
 
@@ -88,7 +90,7 @@ restaurantController.processSignup = async (
     //db ypzish & 2frontendga yozish
     req.session.member = result;
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     console.log("err: processSignup:", err);
