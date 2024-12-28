@@ -1,10 +1,10 @@
-import {
-  ProductSize,
-  ProductVolume,
-  ProductCollection,
-  ProductStatus,
-} from "./../libs/enum/product.enum";
 import mongoose, { Schema } from "mongoose";
+import {
+  ProductCollection,
+  ProductSize,
+  ProductStatus,
+  ProductVolume,
+} from "../libs/enum/product.enum";
 
 const productSchema = new Schema(
   {

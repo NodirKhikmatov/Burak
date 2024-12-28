@@ -1,4 +1,5 @@
 {
   "git-graph.openToTheRepoOfTheActiveTextEditorDocument": true,
-  "files.autoGuessEncoding": true
+  "files.autoGuessEncoding": true,
+  "path-intellisense.ignoreTsConfigBaseUrl": true
 }

@@ -1,4 +1,4 @@
-import { LoginInput, MemberInput, Member } from "./../libs/types/member";
+import { LoginInput, MemberInput, Member } from "../libs/types/member";
 import { Request, Response } from "express";
 import { T } from "../libs//types//common";
 import MemberService from "../models/Member.service";
@@ -15,7 +15,7 @@ memberController.signup = async (req: Request, res: Response) => {
 
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
-      //tood token authentication
+    //tood token authentication
     res.json({ member: result });
   } catch (err) {
     console.log("err: signup:", err);
@@ -32,7 +32,7 @@ memberController.login = async (req: Request, res: Response) => {
 
     const input: LoginInput = req.body,
       result = await memberService.login(input);
-//token 
+    //token
     res.json({ member: result });
   } catch (err) {
     console.log("err: Login:", err);

@@ -1,10 +1,10 @@
 import session from "express-session";
-import { MemberType } from "./../libs/enum/member.enum";
+import { MemberType } from "../libs/enum/member.enum";
 import { Request, Response, NextFunction } from "express";
 import { T } from "../libs//types//common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, MemberInput, LoginInput } from "../libs/types/member";
-import Errors, { Message } from "./../libs/errors";
+import Errors, { Message } from "../libs/errors";
 // import path from "path";
 
 const restaurantController: T = {};
