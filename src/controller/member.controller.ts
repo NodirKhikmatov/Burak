@@ -42,4 +42,9 @@ memberController.login = async (req: Request, res: Response) => {
   }
 };
 
+
+//getusers
+
+
+
 export default memberController;
