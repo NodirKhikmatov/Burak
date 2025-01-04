@@ -14,3 +14,8 @@ FRONTEND VALIDATION
 PIPE VALIDATION
 BACKEND VALIDATION
 DATABASE VALIDATION
+
+// request:
+Traditional Api (html element form POST)
+Rest Api
+GraphQL Api

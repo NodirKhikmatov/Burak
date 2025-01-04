@@ -20,7 +20,7 @@ const store = new MongoDBStore({
 /** 1-entrance */
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //htmlni handle qilish tradition api orqali
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
 
@@ -42,7 +42,7 @@ app.use(
 //+req.session
 app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
-  res.locals.member = sessionInstance.member;
+  res.locals.member = sessionInstance.member; //global tarzda local variable  yaratish ejga for send data
   next();
 });
 
