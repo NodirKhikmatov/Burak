@@ -8,8 +8,8 @@ $(function () {
     if (window.FileReader) {
       const uploadFile = $(this)[0].files[0];
       const fileType = uploadFile["type"];
-      const validImageTypes = ["image/jpg", "image/jpeg", "image/png"];
-      if (!validImageTypes.includes(fileType)) {
+      const validImageType = ["image/jpg", "image/jpeg", "image/png"];
+      if (!validImageType.includes(fileType)) {
         alert("please insert only jpeg, jpeg or png!");
       } else {
         if (uploadFile) {
