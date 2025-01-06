@@ -1,6 +1,6 @@
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import MemberModel from "../schema/Member.model";
-import { MemberType } from "../libs/enum/member.enum";
+import { MemberType, MemberStatus } from "../libs/enum/member.enum";
 
 import Errors, { HttpCode, Message } from "../libs/errors";
 import {
@@ -41,11 +41,16 @@ class MemberService {
   public async login(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
       .findOne(
-        { memberNick: input.memberNick },
-        { memberNick: 1, memberPassword: 1 }
+        {
+          memberNick: input.memberNick,
+          memberStatus: { $ne: MemberStatus.DELETE },
+        },
+        { memberNick: 1, memberPassword: 1, memberStatus: 1 }
       )
       .exec();
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_NUMBER_NICK);
+    else if (member.memberStatus === MemberStatus.BLOCK)
+      throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
 
     const isMatch = await bcrypt.compare(
       input.memberPassword,
