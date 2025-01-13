@@ -2,21 +2,18 @@
 
 Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
 MASALAN: missingNumber([3, 0, 1]) return 2
-*/
-const missingNumber = (nums: number[]): number => {
-  const min = Math.min(...nums);
-  const max = Math.max(...nums);
+ */
 
-  const expectedSum = (max * (max + 1)) / 2 - ((min - 1) * min) / 2;
-  const actualSum = nums.reduce((sum, num) => sum + num, 0);
+function missingNumber(str: number[]) {
+  const a = str.sort();
+  let num = a[0];
+  for (const ele of a) {
+    if (num !== ele) return num;
+    num++;
+  }
+}
 
-  return expectedSum - actualSum;
-};
-
-console.log(missingNumber([3, 0, 1])); // 2
-console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1])); // 8
-console.log(missingNumber([0, 1, 2, 4])); // 3
-
+console.log(missingNumber([3, 5, 2, 1]));
 /*TASK R
 
 Shunday function yozing, u string parametrga ega bo'lsin.
