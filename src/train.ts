@@ -1,3 +1,22 @@
+/* TASK-S:
+
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2
+*/
+const missingNumber = (nums: number[]): number => {
+  const min = Math.min(...nums);
+  const max = Math.max(...nums);
+
+  const expectedSum = (max * (max + 1)) / 2 - ((min - 1) * min) / 2;
+  const actualSum = nums.reduce((sum, num) => sum + num, 0);
+
+  return expectedSum - actualSum;
+};
+
+console.log(missingNumber([3, 0, 1])); // 2
+console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1])); // 8
+console.log(missingNumber([0, 1, 2, 4])); // 3
+
 /*TASK R
 
 Shunday function yozing, u string parametrga ega bo'lsin.
@@ -6,12 +25,12 @@ string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
 
 MASALAN: calculate("1 + 3"); return 4;
 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda
-*/
 
 const calculate = (str: string): number => {
   return eval(str);
 };
 console.log(calculate("1 + 3"));
+*/
 
 /*TASK-Q:
 
