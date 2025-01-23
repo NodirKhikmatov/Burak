@@ -1,10 +1,29 @@
+/*TASK-V:
+
+Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+*/
+
+function countChars(str: string): Record<string, number> {
+  const charCount: Record<string, number> = {};
+  for (const char of str) {
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+  return charCount;
+}
+console.log(countChars("hello"));
+
 /**
  TASK-T:
 
 Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
 MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
 
- */
+
 function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
   const mergedArray: number[] = [];
   let i = 0; 
@@ -36,7 +55,7 @@ function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
 
 console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
-
+ */
 /* TASK-
 
 Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
