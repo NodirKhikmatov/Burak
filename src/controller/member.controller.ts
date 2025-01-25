@@ -1,13 +1,19 @@
 import Errors, { HttpCode, Message } from "../libs/errors";
 import { AUTH_TIMER } from "../libs/config";
-import { LoginInput, MemberInput, Member } from "../libs/types/member";
-import { Request, Response } from "express";
+import {
+  LoginInput,
+  MemberInput,
+  Member,
+  ExtendedRequest,
+} from "../libs/types/member";
+import { Request, Response, NextFunction } from "express";
 import { T } from "../libs//types//common";
 import MemberService from "../models/Member.service";
 import AuthService from "../models/Auth.service";
 
 const memberService = new MemberService();
 const authService = new AuthService();
+
 const memberController: T = {};
 
 //REACT
@@ -57,6 +63,60 @@ memberController.login = async (req: Request, res: Response) => {
   }
 };
 
-//getusers
+memberController.logout = async (req: ExtendedRequest, res: Response) => {
+  try {
+    console.log("logout");
+    res.cookie("accessToken", null, { maxAge: 0, httpOnly: true });
+    res.status(HttpCode.OK).json({ logout: true });
+  } catch (err) {
+    console.log("err: Login:", err);
+    if (err instanceof Errors) {
+      res.status(err.code).json(err);
+    } else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
+
+memberController.verifyAuth = async (
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const token = req.cookies["accessToken"];
+    if (token) req.member = await authService.checkAuth(token);
+    next();
+    if (!req.member) {
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
+      console.log(req.member);
+    }
+  } catch (err) {
+    console.log("err: Login:", err);
+    if (err instanceof Errors) {
+      res.status(err.code).json(err);
+    } else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
+
+memberController.retrieveAuth = async (
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const token = req.cookies["accessToken"];
+    if (token) req.member = await authService.checkAuth(token);
+
+    next();
+    if (!req.member) {
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
+      console.log(req.member);
+    }
+  } catch (err) {
+    console.log("err: Login:", err);
+    if (err instanceof Errors) {
+      res.status(err.code).json(err);
+    } else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
 
 export default memberController;

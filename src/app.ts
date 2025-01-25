@@ -3,7 +3,7 @@ import path from "path";
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
-import cookieparser from "cookie-parser";
+import cookieParser from "cookie-parser";
 import { T } from "./libs/types/common";
 import { MORGAN_FORMAT } from "./libs/config";
 //for building sessions
@@ -23,7 +23,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true })); //htmlni handle qilish tradition api orqali
 app.use(express.json());
-app.use(cookieparser());
+app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2-sessions */
