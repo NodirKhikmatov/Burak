@@ -1,8 +1,33 @@
+/*TASK-W:
+
+Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+*/
+
+function chunkArray<T>(array: T[], size: number): T[][] {
+  if (size <= 0) {
+    throw new Error("err");
+  }
+
+  const result: T[][] = [];
+
+  for (let i = 0; i < array.length; i += size) {
+    result.push(array.slice(i, i + size));
+  }
+
+  return result;
+}
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const size = 3;
+const chunked = chunkArray(array, size);
+console.log(chunked); // [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+
 /*TASK-V:
 
 Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
 MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
-*/
+
 
 function countChars(str: string): Record<string, number> {
   const charCount: Record<string, number> = {};
@@ -16,7 +41,7 @@ function countChars(str: string): Record<string, number> {
   return charCount;
 }
 console.log(countChars("hello"));
-
+*/
 /**
  TASK-T:
 
