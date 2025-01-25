@@ -8,15 +8,17 @@ class AuthService {
 
   public async createToken(payload: Member) {
     return new Promise((resolve, reject) => {
-      const duration = `${AUTH_TIMER}h`;
+      const duration = `${AUTH_TIMER}h`; /*24 soat ishlasin degani*/
       jwt.sign(
-        payload as object,
+        payload,
         process.env.SECRET_TOKEN as string,
-        { expiresIn: duration },
+        {
+          expiresIn: duration,
+        },
         (err, token) => {
           if (err)
             reject(
-              new Errors(HttpCode.UNATHORIZED, Message.TOKEN_CREATION_FAILED)
+              new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED)
             );
           else resolve(token as string);
         }

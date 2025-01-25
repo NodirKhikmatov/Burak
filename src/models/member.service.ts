@@ -60,7 +60,7 @@ class MemberService {
 
     console.log("isMatch", isMatch);
     if (!isMatch) {
-      throw new Errors(HttpCode.UNATHORIZED, Message.WRONG_PASSWORD);
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
 
     return await this.memberModel.findById(member._id).exec();
@@ -110,7 +110,7 @@ class MemberService {
 
     console.log("isMatch", isMatch);
     if (!isMatch) {
-      throw new Errors(HttpCode.UNATHORIZED, Message.WRONG_PASSWORD);
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
 
     return await this.memberModel.findById(member._id).lean().exec();
