@@ -58,12 +58,12 @@ class MemberService {
     );
     // const isMatch = input.memberPassword === member.memberPassword;
 
-    console.log("isMatch", isMatch);
+    // console.log("isMatch", isMatch);
     if (!isMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
 
-    return await this.memberModel.findById(member._id).exec();
+    return await this.memberModel.findById(member._id).lean().exec();
   }
 
   //***** bssr ****

@@ -2,7 +2,6 @@ import Errors, { HttpCode, Message } from "../libs/errors";
 import jwt from "jsonwebtoken";
 import { AUTH_TIMER } from "../libs/config";
 import { Member } from "../libs/types/member";
-import { token } from "morgan";
 
 class AuthService {
   private readonly secretToken;
@@ -15,7 +14,7 @@ class AuthService {
       const duration = `${AUTH_TIMER}h`; /*24 soat ishlasin degani*/
       jwt.sign(
         payload,
-        process.env.SECRET_TOKEN as string,
+        this.secretToken,
         {
           expiresIn: duration,
         },
