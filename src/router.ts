@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router();
 import memberController from "./controller/member.controller";
+import productController from "./controller/product.controller";
 import uploader from "./libs/utils/uploader";
 // member
 
@@ -30,6 +31,7 @@ router.post(
 router.get("/member/top-users", memberController.getTopUsers);
 
 //product
+router.get("/product/all", productController.getProducts);
 //order
 
 export default router;
