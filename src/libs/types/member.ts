@@ -52,7 +52,7 @@ export interface ExtendedRequest extends Request {
 }
 
 export interface AdminRequest extends Request {
-  member: Member;
+  member?: Member;
   session: Session & { member: Member };
   file: Express.Multer.File;
   files: Express.Multer.File[];
