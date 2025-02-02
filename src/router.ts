@@ -2,6 +2,8 @@ import express from "express";
 const router = express.Router();
 import memberController from "./controller/member.controller";
 import productController from "./controller/product.controller";
+import orderController from "./controller/order.controller";
+
 import uploader from "./libs/utils/uploader";
 // member
 
@@ -39,5 +41,11 @@ router.get(
 );
 
 //order
+
+router.post(
+  "/order/create",
+  memberController.verifyAuth,
+  orderController.createOrder
+);
 
 export default router;
