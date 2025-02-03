@@ -118,7 +118,22 @@ class MemberService {
 
     return result;
   }
+  
+  public async addUserPoints(member: Member, point: number): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
 
+    return await this.memberModel
+      .findByIdAndUpdate(
+        {
+          _id: memberId,
+          memberType: MemberType.USER,
+          memberStatus: MemberStatus.ACTIVE,
+        },
+        { $inc: { memberPoints: point } },
+        { new: true }
+      )
+      .exec();
+  }
   //***** bssr ****
 
   // typescipda void ==> hech narsani qaytarmasligini yozishimisz kk

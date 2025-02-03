@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-
 import { OrderStatus } from "../libs/enum/order.enum";
 
 const orderSchema = new Schema(
@@ -8,12 +7,13 @@ const orderSchema = new Schema(
       type: Number,
       required: true,
     },
+
     orderDelivery: {
       type: Number,
       required: true,
     },
 
-    OrderStatus: {
+    orderStatus: {
       type: String,
       enum: OrderStatus,
       default: OrderStatus.PAUSE,
@@ -25,7 +25,7 @@ const orderSchema = new Schema(
       ref: "Member",
     },
   },
-  { timestamps: true, collection: "orders" }
+  { timestamps: true }
 );
 
 export default mongoose.model("Order", orderSchema);
