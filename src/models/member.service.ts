@@ -128,7 +128,7 @@ class MemberService {
           memberType: MemberType.USER,
           memberStatus: MemberStatus.ACTIVE,
         },
-        { $inc: { memberPoint: point } },
+        { $inc: { memberPoints: point } },
         { new: true }
       )
       .exec();
