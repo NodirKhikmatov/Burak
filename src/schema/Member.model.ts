@@ -44,7 +44,7 @@ const memberSchema = new Schema(
       type: "string",
     },
     memberPoints: {
-      type: "string",
+      type: Number,
       default: 0,
     },
   },

@@ -1,3 +1,26 @@
+/*TASK-Z:
+
+Shunday function yozing. Bu function sonlardan iborat array
+qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+sonlarni topib ularni yig'disini qaytarsin.
+
+MASALAN:
+sumEvens([1, 2, 3]); return 2;
+sumEvens([1, 2, 3, 2]); return 4;
+
+Yuqoridagi misolda, bizning funktsiya
+berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+*/
+function sumEvens(numbers: number[]): number {
+  return numbers.reduce((sum, num) => (num % 2 === 0 ? sum + num : sum), 0);
+}
+
+console.log(sumEvens([1, 2, 3])); // Output: 2
+console.log(sumEvens([1, 2, 3, 2])); // Output: 4
+console.log(sumEvens([4, 5, 6, 7, 8])); // Output: 18
+console.log(sumEvens([1, 3, 5, 7])); // Output: 0
+
 /*TASK Y
 
 Shunday function yozing, uni 2'ta array parametri bo'lsin.
@@ -11,12 +34,13 @@ o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
 ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
 joylab return qilmoqda.
 
-*/
+
 function findIntersection(arr1: number[], arr2: number[]) {
   return arr1.filter((value) => arr2.includes(value));
 }
 
 console.log(findIntersection([1, 4, 3], [3, 4, 0]));
+*/
 
 /**
  * TASK-X

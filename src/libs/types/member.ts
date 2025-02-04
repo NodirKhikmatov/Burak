@@ -1,6 +1,6 @@
 import { Session } from ".express-session";
 import { Request } from "express";
-import { MemberStatus, MemberType } from "../enum/member.enum.ts";
+import { MemberStatus, MemberType } from "../enum/member.enum";
 import { ObjectId } from "mongoose";
 
 export interface Member {
@@ -9,11 +9,11 @@ export interface Member {
   memberStatus: MemberStatus;
   memberNick: string;
   memberPhone: string;
-  memberPassword?: string; //databasedan qaytadigan malumot
-  memberAdress?: string;
+  memberPassword?: string;
+  memberAddress?: string;
   memberDesc?: string;
   memberImage?: string;
-  memberPoints: string;
+  memberPoints: number;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -23,11 +23,11 @@ export interface MemberInput {
   memberStatus?: MemberStatus;
   memberNick: string;
   memberPhone: string;
-  memberPassword: string; //borayotgan
-  memberAdress: string;
-  memberDesc: string;
-  memberImage: string;
-  memberPoints: string;
+  memberPassword: string;
+  memberAddress?: string;
+  memberDesc?: string;
+  memberImage?: string;
+  memberPoints?: number;
 }
 
 export interface LoginInput {

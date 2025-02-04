@@ -1,7 +1,6 @@
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import MemberModel from "../schema/Member.model";
 import { MemberType, MemberStatus } from "../libs/enum/member.enum";
-
 import Errors, { HttpCode, Message } from "../libs/errors";
 import {
   LoginInput,
@@ -118,18 +117,18 @@ class MemberService {
 
     return result;
   }
-  
+
   public async addUserPoints(member: Member, point: number): Promise<Member> {
     const memberId = shapeIntoMongooseObjectId(member._id);
-
+    console.log("here arrived");
     return await this.memberModel
-      .findByIdAndUpdate(
+      .findOneAndUpdate(
         {
           _id: memberId,
           memberType: MemberType.USER,
           memberStatus: MemberStatus.ACTIVE,
         },
-        { $inc: { memberPoints: point } },
+        { $inc: { memberPoint: point } },
         { new: true }
       )
       .exec();

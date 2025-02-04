@@ -127,7 +127,8 @@ class OrderService {
 
     //orderStatus Pause => Process +1
     if (orderStatus === OrderStatus.PROCESS) {
-      await this.memberService.addUserPoints(member, 1);
+      await this.memberService.addUserPoints(member, +1);
+      console.log("yes done");
     }
     return result;
   }
