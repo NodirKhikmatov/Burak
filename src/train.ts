@@ -1,3 +1,18 @@
+/*TASK-ZB:
+
+Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+MASALAN: randomBetween(30, 50) return 45
+*/
+
+function randomBetween(num1: number, num2: number) {
+  if (num1 > num2) {
+    throw new Error("num1 should be less than or equal to num2");
+  }
+  return Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+}
+
+console.log(randomBetween(30, 50));
+
 /*TASK-Z:
 
 Shunday function yozing. Bu function sonlardan iborat array
@@ -11,7 +26,7 @@ sumEvens([1, 2, 3, 2]); return 4;
 Yuqoridagi misolda, bizning funktsiya
 berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
 sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
-*/
+
 function sumEvens(numbers: number[]): number {
   return numbers.reduce((sum, num) => (num % 2 === 0 ? sum + num : sum), 0);
 }
@@ -20,7 +35,7 @@ console.log(sumEvens([1, 2, 3])); // Output: 2
 console.log(sumEvens([1, 2, 3, 2])); // Output: 4
 console.log(sumEvens([4, 5, 6, 7, 8])); // Output: 18
 console.log(sumEvens([1, 3, 5, 7])); // Output: 0
-
+*/
 /*TASK Y
 
 Shunday function yozing, uni 2'ta array parametri bo'lsin.

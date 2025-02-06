@@ -65,6 +65,8 @@ class OrderService {
       return "INSERTED";
     });
 
+    console.log("here is", promisedList);
+
     const orderItemsState = await Promise.all(promisedList);
     console.log("orderItemsState", orderItemsState);
   }
@@ -127,7 +129,6 @@ class OrderService {
 
     //orderStatus Pause => Process +1
     if (orderStatus === OrderStatus.PROCESS) {
-      console.log("yes done");
       await this.memberService.addUserPoints(member, 1);
     }
     return result;

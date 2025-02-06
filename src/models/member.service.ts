@@ -120,7 +120,6 @@ class MemberService {
 
   public async addUserPoints(member: Member, point: number): Promise<Member> {
     const memberId = shapeIntoMongooseObjectId(member._id);
-    console.log("here arrived");
     return await this.memberModel
       .findOneAndUpdate(
         {
