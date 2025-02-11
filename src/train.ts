@@ -1,3 +1,31 @@
+/**
+ * TASK ZD
+
+Shunday function yozing. Bu function o'ziga, parametr sifatida
+birinchi oddiy number, keyin yagona array va uchinchi bo'lib oddiy number
+qabul qilsin. Berilgan birinchi number parametr, arrayning tarkibida indeks bo'yicha hisoblanib,
+shu aniqlangan indeksni uchinchi number parametr bilan alashtirib, natija sifatida
+yangilangan arrayni qaytarsin.
+
+MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2];
+
+Yuqoridagi misolda, birinchi raqam bu '1' va arrayning '1'chi indeksi bu 3.
+Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
+yangilangan arrayni qaytarmoqda.
+ */
+function changeNumberInArray(index: number, arr: number[], newValue: number): number[] {
+  if (index < 0 || index >= arr.length) {
+      throw new Error("Index out of bounds");
+  }
+  
+  const newArr = [...arr];
+  newArr[index] = newValue;
+  return newArr;
+}
+
+
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // [1, 2, 7, 2]
+
 /**TASK ZC
 
 Selisy (°C) shkalasi bo'yicha raqam qabul qilib, uni
@@ -9,16 +37,17 @@ MASALAN: celsiusToFahrenheit(10) return 50;
 Yuqoridagi misolda, 0°C, 32°F'ga teng.
 Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
 
-°C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi. */
+°C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi. 
 
 function celsiusToFahrenheit(celsius: number): number {
-  return (celsius * 9) / 5 + 32;
+  return (celsius * 9/5) + 32;
 }
 
-console.log(celsiusToFahrenheit(0)); // 32
+
+console.log(celsiusToFahrenheit(0));  // 32
 console.log(celsiusToFahrenheit(10)); // 50
 console.log(celsiusToFahrenheit(25)); // 77
-
+*/
 /*TASK-ZB:
 
 Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
