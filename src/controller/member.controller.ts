@@ -167,15 +167,9 @@ memberController.retrieveAuth = async (
     if (token) req.member = await authService.checkAuth(token);
 
     next();
-    if (!req.member) {
-      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
-      console.log(req.member);
-    }
   } catch (err) {
-    console.log("err: Login:", err);
-    if (err instanceof Errors) {
-      res.status(err.code).json(err);
-    } else res.status(Errors.standard.code).json(Errors.standard);
+    console.log("err: retrieveAuth:", err);
+    next();
   }
 };
 

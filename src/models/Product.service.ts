@@ -26,7 +26,7 @@ class ProductService {
   /*SPA */
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
     const match: T = { productStatus: ProductStatus.PROCESS };
- 
+
     if (inquiry.productCollection) {
       match.productCollection = inquiry.productCollection;
     }
@@ -49,7 +49,7 @@ class ProductService {
       .exec();
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-  
+
     return result;
   }
 
