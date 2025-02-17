@@ -1,3 +1,22 @@
+/**TASK-ZF:
+
+Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib 
+qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String' */
+
+function capitalizeWords(input: string): string {
+  return input
+    .split(" ")
+    .map((word) =>
+      word.length > 2 ? word.charAt(0).toUpperCase() + word.slice(1) : word
+    )
+    .join(" ");
+}
+
+
+console.log(capitalizeWords("name should be a string"));
+
+
 /**
  * TASK ZE
 
@@ -10,14 +29,14 @@ MASALAN: removeDuplicate('stringg') return 'string'
 Yuqoridagi misolda, 'stringg' so'zi tarkibida 'g' harfi takrorlanmoqda
 funktsiyamiz shu bittadan ortiq takrorlangan harfni olib natijani
 qaytarmoqda.
- */
+
 
 function removeDuplicate(str: string): string {
   return Array.from(new Set(str)).join("");
 }
 
 console.log(removeDuplicate("stringg")); // 'string'
-
+ */
 /**
  * TASK ZD
 
