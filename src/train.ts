@@ -1,8 +1,24 @@
+/**
+TASK-ZG:
+
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+*/
+
+function capitalizeWords(sentence: string): string {
+  return sentence
+    .toLowerCase()
+    .replace(/\s+/g, "_")
+    .replace(/[^a-z0-9_]/g, "");
+}
+
+console.log(capitalizeWords("name should be a string"));
+
 /**TASK-ZF:
 
 Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib 
 qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
-MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String' */
+MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
 
 function capitalizeWords(input: string): string {
   return input
@@ -13,10 +29,8 @@ function capitalizeWords(input: string): string {
     .join(" ");
 }
 
-
 console.log(capitalizeWords("name should be a string"));
-
-
+ */
 /**
  * TASK ZE
 
