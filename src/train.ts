@@ -1,9 +1,33 @@
+/** 
+
+TASK-ZH:
+Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+*/
+
+function findDisappearedNumbers(str: number[]) {
+  const a = str.sort((a, b) => a - b);
+
+  let missingNum: number[] = [];
+  let num = a[0];
+
+  for (const ele of a) {
+    while (num < ele) {
+      missingNum.push(num);
+      num++;
+    }
+  }
+  return missingNum;
+}
+
+console.log(findDisappearedNumbers([1, 3, 4, 7]));
+
 /**
 TASK-ZG:
 
 Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
 MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
-*/
+
 
 function capitalizeWords(sentence: string): string {
   return sentence
@@ -13,7 +37,7 @@ function capitalizeWords(sentence: string): string {
 }
 
 console.log(capitalizeWords("name should be a string"));
-
+*/
 /**TASK-ZF:
 
 Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib 
