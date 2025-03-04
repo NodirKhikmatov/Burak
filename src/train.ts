@@ -1,9 +1,23 @@
+/**TASK-ZJ:
+
+Shunday function yozing, u berilgan arrayni ichidagi numberlarni qiymatini hisoblab qaytarsin.
+MASALAN: reduceNestedArray([1, [1, 2, [4]]]) return 8
+**/
+
+function reduceNestedArray(str: any[]) {
+  return str
+    .flat(Infinity)
+    .reduce((sum, num) => sum + (typeof num === "number" ? num : 0), 0);
+}
+
+console.log(reduceNestedArray([1, [1, 2, [4]]]));
+
 /** 
 
 TASK-ZH:
 Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
 MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
-*/
+
 
 function findDisappearedNumbers(str: number[]) {
   const a = str.sort((a, b) => a - b);
@@ -21,7 +35,7 @@ function findDisappearedNumbers(str: number[]) {
 }
 
 console.log(findDisappearedNumbers([1, 3, 4, 7]));
-
+*/
 /**
 TASK-ZG:
 
